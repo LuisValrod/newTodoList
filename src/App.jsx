@@ -17,6 +17,15 @@ import TodoList from "./components/todoList"
 const App = () => {
 
   const [todos, setTodos] = useState(initialStateTodos)
+
+  function createTodo (title) {
+    const newTodo = {
+      id: todos.length + 1,
+      completed: false,
+      title: title.trim()
+    }
+    setTodos([...todos, newTodo])
+  }
   
   return(
   <>
@@ -26,7 +35,7 @@ const App = () => {
 
     <main className="container mx-auto mt-8 px-4">
       
-      <TodoCreate />
+      <TodoCreate createTodo={createTodo} />
        
       <TodoList todos={todos} />
        
