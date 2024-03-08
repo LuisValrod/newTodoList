@@ -36,8 +36,14 @@ const App = () => {
   const updateTodo = (id) => {
     setTodos(todos.map( todo => todo.id === id ? {...todo, completed: !todo.completed}: todo))
   }
+// Clear all completed todos Function
+  const clearCompleted = () => {
+    setTodos(todos.filter(todo => !todo.completed))
+  }
 
- 
+ let itemsCompleted = todos.filter(todo => todo.completed).length
+
+ let itemsLeft = todos.length
   
   return(
   <>
@@ -51,7 +57,7 @@ const App = () => {
        
       <TodoList todos={todos} removeTodo={removeTodo} updateTodo={updateTodo}/>
        
-      <TodoComputed />
+      <TodoComputed itemsLeft={itemsLeft} clearCompleted={clearCompleted} itemsCompleted={itemsCompleted} />
 
       <TodoFilter />
     
