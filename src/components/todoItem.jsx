@@ -6,10 +6,13 @@ const TodoItem = ({todo}) => {
     const{id, title, completed} = todo
     return(
         <article className="flex gap-4 py-4 border-b-gray-400 border-b">
-          <button className="grid h-5 w-5 flex-none place-content-center rounded-full border-2 bg-gradient-to-r from-indigo-500 via-purple-500 to pink-500">
-            <CheckIcon />
+          {/* <button className="inline-block h-5 w-5 flex-none rounded-full border-2">
+          </button> */}
+          <button className={`h-5 w-5 rounded-full border-2 flex-none ${completed ? "grid place-content-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500": "inline-block " }`}>
+            {completed && <CheckIcon />}
+            
           </button>
-          <p className="text-gray-600 grow">{title}       
+          <p className="text-gray-60 0 grow">{title}       
           </p>
           <button className="flex-none">
             <CrossIcon />
