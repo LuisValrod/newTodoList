@@ -1,3 +1,3 @@
 ﻿README COMING SOON...
 <br>
-<a src="https://lrvtodolist.netlify.app/">Link to deployed version</a>
+<a href="https://lrvtodolist.netlify.app/">Link to deployed version</a>
