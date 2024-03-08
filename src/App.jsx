@@ -41,6 +41,27 @@ const App = () => {
     setTodos(todos.filter(todo => !todo.completed))
   }
 
+// Logic to filter all, completed and actives todos
+  const [filter, setFilter] = useState('all');
+
+  const changeFilterState = (filter) => {
+    setFilter(filter)
+  }
+
+  const filteredTodos = () => {
+    switch (filter) {
+      case 'all':
+        return todos;
+      case 'active':
+        return todos.filter((todo) => !todo.completed);
+      case 'completed':
+        return todos.filter((todos) => todos.completed);
+      default:
+        return todos
+    }
+
+  }
+
  let itemsCompleted = todos.filter(todo => todo.completed).length
 
  let itemsLeft = todos.length
@@ -55,11 +76,11 @@ const App = () => {
       
       <TodoCreate createTodo={createTodo} />
        
-      <TodoList todos={todos} removeTodo={removeTodo} updateTodo={updateTodo}/>
+      <TodoList todos={filteredTodos()} removeTodo={removeTodo} updateTodo={updateTodo}/>
        
       <TodoComputed itemsLeft={itemsLeft} clearCompleted={clearCompleted} itemsCompleted={itemsCompleted} />
 
-      <TodoFilter />
+      <TodoFilter changeFilterState={changeFilterState} filter={filter} />
     
     </main>
 
