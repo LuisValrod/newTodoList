@@ -1,22 +1,20 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "./components/header"
 import TodoComputed from "./components/todoComputed"
 import TodoCreate from "./components/todoCreate"
 import TodoFilter from "./components/todoFilter"
 import TodoList from "./components/todoList"
 
- const initialStateTodos = [
-  {id: 1, title: 'Complete my own portfolio', completed: true},
-  {id: 2, title: 'Complete my own blog', completed: false},
-  {id: 3, title: 'Pick up groceries', completed: true},
-  {id: 4, title: '10 minutes meditation', completed: false},
-  {id: 5, title: 'Analyse the data of "Countries of the world" file', completed: true},
-
- ]
+ const initialStateTodos = JSON.parse(localStorage.getItem('todos') || [])
 
 const App = () => {
 
   const [todos, setTodos] = useState(initialStateTodos)
+
+  useEffect(()=> {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
+
 
  //create Function
 
