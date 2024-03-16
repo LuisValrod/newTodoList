@@ -5,11 +5,11 @@ import TodoCreate from "./components/todoCreate"
 import TodoFilter from "./components/todoFilter"
 import TodoList from "./components/todoList"
 
- const initialStateTodos = JSON.parse(localStorage.getItem('todos') || [])
+ const initialStateTodos = JSON.parse(localStorage.getItem('todos'))
 
 const App = () => {
 
-  const [todos, setTodos] = useState(initialStateTodos)
+  const [todos, setTodos] = useState(initialStateTodos ?? [])
 
   useEffect(()=> {
     localStorage.setItem('todos', JSON.stringify(todos))
