@@ -66,11 +66,11 @@ const App = () => {
   
   return(
   <>
-  <div className="dark:bg-gray-900 transition-all duration-1000 dark:bg-[url('./assets/images/bg-mobile-dark.jpg')] min-h-screen bg-gray-200 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
+  <div className="dark:bg-gray-900 transition-all duration-1000 dark:bg-[url('./assets/images/bg-mobile-dark.jpg')] min-h-screen bg-gray-200 bg-[url('./assets/images/bg-mobile-light.jpg')]  bg-contain bg-no-repeat md:bg-[url('./assets/images/bg-desktop-light.jpg')] md:dark:bg-[url('./assets/images/bg-desktop-dark.jpg')]">
   
    <Header />
 
-    <main className="container mx-auto mt-8 px-4">
+    <main className="container mx-auto mt-8 px-4 md:max-w-2xl">
       
       <TodoCreate createTodo={createTodo} />
        
